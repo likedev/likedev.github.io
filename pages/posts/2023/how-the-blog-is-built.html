@@ -1,0 +1,99 @@
+<!-- [article-meta] edit_time=2023-03-10  -->
+<!-- [article-meta] tags=golang  -->
+<div class="content">
+    <h1 class="title">How the blog is built</h1>
+
+    <article_meta_block/>
+
+    <p>In the last few days I abandoned my previous blog site, which was hosted on a Tencent cloud server,
+        because of the high cost. I found that GitHub pages is a good alternative,and I have decided to write blogs in
+        English to practice my English.
+    </p>
+
+    <h2>Website Tech Design</h2>
+
+    <p>I want this blog to be neat in style,so I decided to write all css style and write raw HTML as content for
+        flexibility.I would break HTML pages to different HTML blocks for code reuse,and use golang code to build all
+        these code pieces to a collection of HTML pages.Build process of HTML is through GitHub actions.
+    </p>
+
+    <h2>
+        Build process
+    </h2>
+
+    <p>all the code is in the GitHub Repository</p>
+
+    <a class="img_a" href="https://github.com/likedev/likedev.github.io">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=likedev&repo=likedev.github.io" alt="">
+    </a>
+
+    <h3>build go code</h3>
+    <!--        -->
+    <pre class="command-line" data-user="root"
+         data-host="ubuntu"><code class="language-command-line">go build ./tools/build.go</code></pre>
+
+    <p>
+        this will generate an executable file named
+        <scode>build</scode>
+        in the project root directory.
+    </p>
+
+    <h3>build html</h3>
+
+    <pre class="command-line" data-user="root"
+         data-host="ubuntu"><code class="language-command-line">./build</code></pre>
+
+    <p>
+        this will generate html files to
+        <scode>${PROJECT_ROOT}/ouput</scode>
+        directory
+    </p>
+    <h3>push to website</h3>
+    <p>
+        the two build step above is included in this step,when we push blog html files to main GitHub
+        branch,
+        the GitHub action is called and pushes the generated files to the gh_page branch(we use the gh_page branch for
+        deploying
+        webpages),we use the GitHub actions <a href="https://github.com/peaceiris/actions-gh-pages">
+        peaceiris/actions-gh-pages
+    </a>
+        to automatically push html files to git branch
+        <scode>gh_pages</scode>
+        .
+    </p>
+    <p>the contents of the GitHub action job definition yml:</p>
+
+    <pre><code class="language-yaml">
+name: GitHub Pages
+on:
+  push:
+    branches:
+      - main   # only pushed to main branch,the GitHub action is invoked
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04  # build environment provided by GitHub
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}   # Don't change this
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3    # set up go build environment
+        with:
+          go-version: '1.20.2'
+
+      - name: GoBuild
+        run: go build ./tools/build.go   # build our go file
+      - name: generateHtml
+        run: ./build             # invoked go executable file
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3    # provided by third party
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output               # tell the action where output files exist
+    </code></pre>
+
+</div>
