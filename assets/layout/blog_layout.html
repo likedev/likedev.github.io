@@ -5,11 +5,9 @@
     <title>{{title}}</title>
     <meta property="og:title" content="{{title}}"/>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/likedev/likedev.github.io@main/assets/prism/prism.css"/>
 
-    <link rel="stylesheet" href="../prism/prism.css"/>
-
-    <!--    [include-hightlight_js]-->
-    <!--[include-jetbransmono]-->
+    <jetbrains_mono_font_block/>
     <style>
         * {
             margin: 0;
@@ -23,6 +21,10 @@
             margin: auto;
             /*height: 800px;*/
             /*border: 1px solid grey;*/
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, "JetBrains Mono";
         }
 
         h1.title {
@@ -39,7 +41,7 @@
             margin-block-end: 0.8em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, "JetBrains Mono";
             font-size: 25px;
             line-height: 1.5;
             word-wrap: break-word;
@@ -69,11 +71,16 @@
             margin-top: 20px;
         }
 
-        pre code {
-            margin-block-start: 1em;
-            margin-block-end: 1em;
+        pre code[class*=language-] {
+            /*margin-block-start: 1em;*/
+            /*margin-block-end: 1em;*/
             font-size: 18px;
-            font-family: JetBrains Mono, Consolas, serif;
+            font-family: JetBrains Mono, Consolas, serif !important;;
+        }
+
+        code[class*=language-], pre[class*=language-] {
+            font-family: JetBrains Mono, Consolas, serif !important;
+            font-size: 18px;
         }
 
         scode {
@@ -145,7 +152,7 @@
         }
 
         .icon_calender_svg {
-            background-image: url("/icons/calendar.svg");
+            background-image: url(https://cdn.jsdelivr.net/gh/likedev/likedev.github.io@main/assets/icons/calendar.svg);
             background-repeat: no-repeat;
             background-size: 100%;
             display: inline-block;
@@ -155,7 +162,7 @@
         }
 
         .icon_tag_svg {
-            background-image: url("/icons/tag.svg");
+            background-image: url(https://cdn.jsdelivr.net/gh/likedev/likedev.github.io@main/assets/icons/tag.svg);
             background-repeat: no-repeat;
             background-size: 100%;
             display: inline-block;
@@ -207,21 +214,21 @@
     }
 </style>
 <div class="comment_block">
-    <!--    <script src="https://giscus.app/client.js"-->
-    <!--            data-repo="likedev/xiaxuxu.github.io"-->
-    <!--            data-repo-id="MDEwOlJlcG9zaXRvcnkxMzA0NTYzMDk="-->
-    <!--            data-category="Announcements"-->
-    <!--            data-category-id="DIC_kwDOB8aa9c4CUx7t"-->
-    <!--            data-mapping="og:title"-->
-    <!--            data-strict="0"-->
-    <!--            data-reactions-enabled="1"-->
-    <!--            data-emit-metadata="0"-->
-    <!--            data-input-position="bottom"-->
-    <!--            data-theme="light"-->
-    <!--            data-lang="en"-->
-    <!--            crossorigin="anonymous"-->
-    <!--            async>-->
-    <!--    </script>-->
+    <script src="https://giscus.app/client.js"
+            data-repo="likedev/xiaxuxu.github.io"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkxMzA0NTYzMDk="
+            data-category="Announcements"
+            data-category-id="DIC_kwDOB8aa9c4CUx7t"
+            data-mapping="og:title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="light"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
 </div>
 <footer>
     <style>
@@ -276,7 +283,7 @@
         </div>
     </div>
 </footer>
-<script src="../prism/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/likedev/likedev.github.io@main/assets/prism/prism.js"></script>
 
 <script>
 

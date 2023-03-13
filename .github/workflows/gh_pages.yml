@@ -20,7 +20,7 @@ jobs:
           go-version: '1.20.2'
 
       - name: GoBuild
-        run: go build ./tools/build.go
+        run: go build build.go
       - name: generateHtml
         run: ./build
 

@@ -1,9 +1,21 @@
 <!-- [article-meta] edit_time=2023-03-10  -->
+<!-- [article-meta] title=How the blog is built  -->
 <!-- [article-meta] tags=golang  -->
+<!-- [article-meta] layout=blog_layout  -->
+<!-- [article-meta] highlight=prism  -->
 <div class="content">
     <h1 class="title">How the blog is built</h1>
 
-    <article_meta_block/>
+    <div class="article_meta_block">
+        <div class="meta_time">
+            <span class="icon_calender_svg"></span>
+            {{edit_time}}
+        </div>
+        <div class="meta_tags">
+            <span class="icon_tag_svg"></span>
+            <a href="/tags/golang">golang</a>
+        </div>
+    </div>
 
     <p>In the last few days I abandoned my previous blog site, which was hosted on a Tencent cloud server,
         because of the high cost. I found that GitHub pages is a good alternative,and I have decided to write blogs in
