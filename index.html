@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Livedev Dev Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, "JetBrains Mono";
+        }
+
+        .index_title {
+            background-color: #f6f8fa;
+            height: 33vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .title_text {
+            position: absolute;
+            top: 15%;
+            left: 10%;
+        }
+
+        .header_menu_block {
+            position: absolute;
+            top: 75%;
+            left: 8%;
+        }
+
+        .header_menu {
+            display: inline-block;
+            width: 140px;
+            height: 40px;
+            font-size: 30px;
+            text-align: center;
+            text-underline-offset: 25%;
+            color: black;
+        }
+
+        .index_content_block {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            position: relative;
+            padding-top: 30px;
+        }
+
+        .subtitle {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .post_link_list {
+            width: 30%;
+            /*border: 1px solid black;*/
+            float: left;
+            /*margin-left: 10%;*/
+        }
+
+        .post_link {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .tag_block {
+            float: left;
+            /*border: 1px solid black;*/
+            width: 30%;
+        }
+
+        .tag_collection a {
+            display: inline-block;
+            font-size: 1.3em;
+            /*border: 1px solid black;*/
+            text-decoration: none;
+            background-color: #ddf4ff;
+            color: #0969da;
+            border-radius: 0.65em;
+            padding: 5px 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .tag_collection a:hover {
+            color: #FFFFFF;
+            background-color: #0969da;
+        }
+
+
+        .work_block {
+            width: 30%;
+            float: left;
+            /*border: 1px solid black;*/
+        }
+
+        .work_block img {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="index_title">
+    <div class="title_text">
+        <h1 style="font-size: 50px;margin-bottom: 20px">My Dev Notes</h1>
+        <p style="font-size: 20px">Keep focused😳, keep Happy😜. </p>
+    </div>
+
+    <div class="header_menu_block">
+        <!--        <a href="/pages" class="header_menu">posts</a>-->
+        <!--        <a href="/tags" class="header_menu">tags</a>-->
+        <!--        <a href="/about" class="header_menu">about</a>-->
+        <!--        <a href="/search" class="header_menu">search</a>-->
+    </div>
+</div>
+<div class="index_content_block">
+    <div class="post_link_list">
+        <h2 class="subtitle">Recent Posts</h2>
+        <a href="/posts/2023/how-the-blog-is-built" class="post_link"> How the blog is built ?(2023-03-10)</a>
+    </div>
+
+    <div class="tag_block">
+        <h2 class="subtitle">Tags</h2>
+        <div class="tag_collection">
+            <a href="">algorithm</a>
+            <a href="">Unity</a>
+            <a href="">Computer Graphics</a>
+            <a href="">Big Data</a>
+            <a href="">NLP</a>
+            <a href="">Go Language</a>
+            <a href="">C/C++</a>
+            <a href="">Game Dev</a>
+            <a href="">Blender</a>
+            <a href="">more...</a>
+        </div>
+    </div>
+
+    <div class="work_block">
+        <h2 class="subtitle">Recent Work</h2>
+        <a href="https://github.com/likedev">
+
+            <img src="https://github-readme-stats.vercel.app/api?username=likedev">
+        </a>
+        <a href="https://github.com/likedev/likedev.github.io">
+            <img src="https://github-readme-stats.vercel.app/api/pin/?username=likedev&repo=likedev.github.io">
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
