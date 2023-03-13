@@ -35,9 +35,8 @@ func GetDirByPath(path string) string {
 	return path[:lastIndex]
 }
 
-func CopyToOut(src string, dst_file string) {
-
-	dst_dir := GetDirByPath(dst_file)
+func CheckDirAndCreate(dst string) {
+	dst_dir := GetDirByPath(dst)
 	if _, err := os.Stat(dst_dir); os.IsNotExist(err) {
 		err := os.MkdirAll(dst_dir, 0755)
 		if err != nil {
@@ -45,6 +44,10 @@ func CopyToOut(src string, dst_file string) {
 			log.Fatal(err)
 		}
 	}
+}
+
+func CopyToOut(src string, dst_file string) {
+	CheckDirAndCreate(dst_file)
 	data, err := ioutil.ReadFile(src)
 	if err != nil {
 		fmt.Printf("读取文件错误： %s ", src)
@@ -67,14 +70,7 @@ func GetFileContent(path string) string {
 }
 
 func WriteToFile(file string, content string) {
-	dst_dir := GetDirByPath(file)
-	if _, err := os.Stat(dst_dir); os.IsNotExist(err) {
-		err := os.MkdirAll(dst_dir, 0755)
-		if err != nil {
-			fmt.Printf("创建文件夹失败%s\n", dst_dir)
-			log.Fatal(err)
-		}
-	}
+	CheckDirAndCreate(file)
 	ioutil.WriteFile(file, []byte(content), 0755)
 }
 
@@ -84,6 +80,7 @@ func CopyFile(src, dst string) error {
 	var srcfd *os.File
 	var dstfd *os.File
 	var srcinfo os.FileInfo
+	CheckDirAndCreate(dst)
 
 	if srcfd, err = os.Open(src); err != nil {
 		return err
